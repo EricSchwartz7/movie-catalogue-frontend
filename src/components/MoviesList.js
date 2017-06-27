@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Link } from 'react-router-dom'
 import Movie from './Movie'
 import MovieForm from './MovieForm'
 import { List, Grid, Message } from 'semantic-ui-react'
+import SearchInput, {createFilter} from 'react-search-input'
 
 axios.defaults.baseURL = 'http://localhost:3000/api/v1'
 
@@ -18,12 +19,14 @@ class MoviesList extends Component {
       selected: {},
       error: false,
       success: false,
-      deleted: false
+      deleted: false,
+      searchTerm: ""
     };
 
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.searchUpdated = this.searchUpdated.bind(this);
   }
 
   componentWillMount() {
@@ -87,7 +90,13 @@ class MoviesList extends Component {
     });
   }
 
+  searchUpdated(term){
+    this.setState({searchTerm: term});
+  }
+
   render() {
+
+    const filteredMovies = this.state.movies.filter(createFilter(this.state.searchTerm, 'title'))
 
     return(
       <div>
@@ -101,9 +110,10 @@ class MoviesList extends Component {
               allGenres={this.state.allGenres}/>
           </Grid.Column>
           <Grid.Column>
+            <SearchInput className="search-input" onChange={this.searchUpdated} />
             <Router>
               <List>
-                {this.state.movies.map( (movie, i) =>
+                {filteredMovies.map( (movie, i) =>
                   <List.Item key={i}>
                     <Link
                       id={movie.id}
