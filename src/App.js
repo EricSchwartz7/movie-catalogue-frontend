@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import MoviesList from './components/MoviesList.js'
+import Home from './components/Home.js'
 
 class App extends Component {
   render() {
@@ -9,7 +9,7 @@ class App extends Component {
         <div className="App-header">
           <h2>Movie Catalogue</h2>
         </div>
-        <MoviesList />
+        <Home />
       </div>
     );
   }

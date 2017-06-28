@@ -2,6 +2,7 @@ import React from 'react'
 import { Button, Header, Modal } from 'semantic-ui-react'
 
 const DeleteModal = (props) => (
+
   <Modal trigger={props.trigger} open={props.open}>
     <Header content='Delete Movie' />
     <Modal.Content>
@@ -12,6 +13,7 @@ const DeleteModal = (props) => (
       <Button onClick={props.onConfirm} color='red'>Confirm</Button>
     </Modal.Actions>
   </Modal>
+  
 )
 
 export default DeleteModal
