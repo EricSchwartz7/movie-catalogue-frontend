@@ -29,11 +29,11 @@ class Movie extends Component {
   }
 
   handleOpen(){
-    this.setState({modalOpen: true})
+    this.setState({modalOpen: true});
   }
 
   handleClose(){
-    this.setState({modalOpen: false})
+    this.setState({modalOpen: false});
   }
 
   handleDelete(){

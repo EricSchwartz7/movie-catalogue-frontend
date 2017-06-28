@@ -3,7 +3,7 @@ import axios from 'axios'
 import Movie from './Movie'
 import MovieForm from './MovieForm'
 import MoviesList from './MoviesList'
-import { Grid, Message, Loader } from 'semantic-ui-react'
+import { Grid, Message } from 'semantic-ui-react'
 import SearchInput, {createFilter} from 'react-search-input'
 
 axios.defaults.baseURL = 'https://movie-catalogue-api.herokuapp.com/api/v1'
@@ -31,7 +31,6 @@ class Home extends Component {
   }
 
   componentWillMount() {
-    console.log('mounting')
     this.getMovies();
     this.getGenres();
   }
@@ -133,7 +132,7 @@ class Home extends Component {
           </Grid.Column>
         </Grid>
       </div>
-    )
+    );
   }
 }
 

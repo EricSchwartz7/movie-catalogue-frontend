@@ -23,7 +23,7 @@ class MoviesList extends Component {
             </List.Item>)}
         </List>
       </Router>
-    )
+    );
   }
 
 }

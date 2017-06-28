@@ -59,7 +59,7 @@ class MovieForm extends Component {
   render(){
     const { title, storyline, genres, release_date, imdb_link } = this.state
     const allGenres = this.props.allGenres.map( (genre) => {
-      return {text: genre, value: genre}
+      return {text: genre, value: genre};
     })
 
     return(
@@ -83,7 +83,7 @@ class MovieForm extends Component {
           <Form.Button>Submit</Form.Button>
         </Form>
       </div>
-    )
+    );
   }
 }
 

@@ -13,7 +13,7 @@ const DeleteModal = (props) => (
       <Button onClick={props.onConfirm} color='red'>Confirm</Button>
     </Modal.Actions>
   </Modal>
-  
-)
+
+);
 
 export default DeleteModal
