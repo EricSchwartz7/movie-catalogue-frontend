@@ -3,10 +3,10 @@ import axios from 'axios'
 import Movie from './Movie'
 import MovieForm from './MovieForm'
 import MoviesList from './MoviesList'
-import { Grid, Message } from 'semantic-ui-react'
+import { Grid, Message, Loader } from 'semantic-ui-react'
 import SearchInput, {createFilter} from 'react-search-input'
 
-axios.defaults.baseURL = 'http://localhost:3000/api/v1'
+axios.defaults.baseURL = 'https://movie-catalogue-api.herokuapp.com/api/v1'
 
 class Home extends Component {
 
