@@ -5,8 +5,10 @@ import MovieForm from './MovieForm'
 import MoviesList from './MoviesList'
 import { Grid, Message } from 'semantic-ui-react'
 import SearchInput, {createFilter} from 'react-search-input'
+import NotFound from './NotFound'
 
-axios.defaults.baseURL = 'https://movie-catalogue-api.herokuapp.com/api/v1'
+// axios.defaults.baseURL = 'https://movie-catalogue-api.herokuapp.com/api/v1'
+axios.defaults.baseURL = 'http://localhost:3000/api/v1'
 
 class Home extends Component {
 
@@ -114,7 +116,10 @@ class Home extends Component {
           <Grid.Column>
             <h3>Catalogue</h3>
             <SearchInput className="search-input" onChange={this.searchUpdated} />
-            <MoviesList movies={filteredMovies} onClick={this.handleClick} />
+            {filteredMovies.length > 0 ?
+              <MoviesList movies={filteredMovies} onClick={this.handleClick} />
+              : <NotFound allMovies={this.state.movies} onClick={this.handleClick} />
+            }
           </Grid.Column>
           <Grid.Column>
             {this.state.deleted ?
